@@ -6,29 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-id = 1
-10.times do
+id = 369
+362.times do
   heroHash = RestClient.get("http://superheroapi.com/api/10117199249842334/#{id}")
   id += 1
 
   hero = JSON.parse(heroHash)
 
-  Hero.create(
-    name: hero['name'],
-    # intelligence: hero['powerstats']['intelligence'].to_i,
-    # strength: hero['powerstats']['strength'].to_i,
-    # speed: hero['powerstats']['speed'].to_i,
-    # durability: hero['powerstats']['durability'].to_i,
-    # power: hero['powerstats']['power'].to_i,
-    # combat: hero['powerstats']['combat'].to_i,
-    #
-    # full_name: hero['biography']['full-name'],
-    # birth_place: hero['biography']['place-of-birth'],
-    #
-    # gender: hero['appearance']['gender'],
-    # race: hero['appearance']['race'],
 
-    image: hero['image']['url']
+
+  Hero.create(
+    :name => hero['name'],
+    :intelligence =>  hero['powerstats']['intelligence'].to_i,
+    :strength =>  hero['powerstats']['strength'].to_i,
+    :speed =>  hero['powerstats']['speed'].to_i,
+    :durability => hero['powerstats']['durability'].to_i,
+    :power => hero['powerstats']['power'].to_i,
+    :combat => hero['powerstats']['combat'].to_i,
+    
+    :full_name => hero['biography']['full-name'],
+    :birth_place => hero['biography']['place-of-birth'],
+    
+    :gender => hero['appearance']['gender'],
+    :race => hero['appearance']['race'],
+
+    :image => hero['image']['url']
   )
 end
 

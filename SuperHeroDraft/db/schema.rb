@@ -17,10 +17,17 @@ ActiveRecord::Schema.define(version: 2018_07_08_204444) do
 
   create_table "heros", force: :cascade do |t|
     t.string "name"
-    t.string "power"
-    t.string "prefix"
-    t.string "suffix"
-    t.string "descriptor"
+    t.integer "intelligence"
+    t.integer "strength"
+    t.integer "speed"
+    t.integer "durability"
+    t.integer "power"
+    t.integer "combat"
+    t.string "full_name"
+    t.string "birth_place"
+    t.string "gender"
+    t.string "race"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
