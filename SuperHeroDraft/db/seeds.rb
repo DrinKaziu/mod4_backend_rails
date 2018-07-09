@@ -8,18 +8,27 @@
 
 id = 1
 10.times do
-  hero = RestClient.get("http://superheroapi.com/api/10117199249842334/#{id}")
-  id++
+  heroHash = RestClient.get("http://superheroapi.com/api/10117199249842334/#{id}")
+  id += 1
+
+  hero = JSON.parse(heroHash)
 
   Hero.create(
-    JSON.parse(
-      name: hero[name],
-      powerstats: hero[powerstats],
-      biography: hero[biography],
-      work: hero[work],
-      connections: hero[connections],
-      image: hero[image]
-    )
+    name: hero['name'],
+    # intelligence: hero['powerstats']['intelligence'].to_i,
+    # strength: hero['powerstats']['strength'].to_i,
+    # speed: hero['powerstats']['speed'].to_i,
+    # durability: hero['powerstats']['durability'].to_i,
+    # power: hero['powerstats']['power'].to_i,
+    # combat: hero['powerstats']['combat'].to_i,
+    #
+    # full_name: hero['biography']['full-name'],
+    # birth_place: hero['biography']['place-of-birth'],
+    #
+    # gender: hero['appearance']['gender'],
+    # race: hero['appearance']['race'],
+
+    image: hero['image']['url']
   )
 end
 
@@ -34,7 +43,7 @@ end
 #     "power":"89",
 #     "combat":"100"
 #     },
-#     "biography":{
+#   "biography":{
 #       "full-name":"Logan",
 #       "alter-egos":"No alter egos found.",
 #       "aliases":[

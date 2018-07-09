@@ -2,10 +2,19 @@ class CreateHeros < ActiveRecord::Migration[5.2]
   def change
     create_table :heros do |t|
       t.string :name
-      t.string :powerstats
-      t.string :biography
-      t.string :work
-      t.string :connections
+      # t.integer :intelligence
+      # t.integer :strength
+      # t.integer :speed
+      # t.integer :durability
+      # t.integer :power
+      # t.integer :combat
+      #
+      # t.string :full_name
+      # t.string :birth_place
+      #
+      # t.string :gender
+      # t.string :race
+
       t.string :image
 
       t.timestamps
