@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-id = 369
-362.times do
+id = 629
+102.times do
   heroHash = RestClient.get("http://superheroapi.com/api/10117199249842334/#{id}")
   id += 1
 
@@ -23,10 +23,10 @@ id = 369
     :durability => hero['powerstats']['durability'].to_i,
     :power => hero['powerstats']['power'].to_i,
     :combat => hero['powerstats']['combat'].to_i,
-    
+
     :full_name => hero['biography']['full-name'],
     :birth_place => hero['biography']['place-of-birth'],
-    
+
     :gender => hero['appearance']['gender'],
     :race => hero['appearance']['race'],
 
