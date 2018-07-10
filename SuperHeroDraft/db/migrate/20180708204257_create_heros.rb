@@ -17,6 +17,8 @@ class CreateHeros < ActiveRecord::Migration[5.2]
 
       t.string :image
 
+      t.belongs_to :team
+
       t.timestamps
     end
   end

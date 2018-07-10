@@ -6,14 +6,45 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-id = 629
-102.times do
-  heroHash = RestClient.get("http://superheroapi.com/api/10117199249842334/#{id}")
+
+
+# j = Team.find_by(name: "John's Team")
+# d = Team.find_by(name: "Drin's Team")
+
+# hero1 = Hero.find(1)
+# hero2 = Hero.find(2)
+# hero3 = Hero.find(3)
+# hero4 = Hero.find(9)
+# hero5 = Hero.find(7)
+
+# hero6 = Hero.find(21)
+# hero7 = Hero.find(23)
+# hero8 = Hero.find(16)
+# hero9 = Hero.find(13)
+# hero10 = Hero.find(40)
+
+
+# j.heros.push(hero1)
+# j.heros.push(hero2)
+# j.heros.push(hero3)
+# j.heros.push(hero4)
+# j.heros.push(hero5)
+
+# d.heros.push(hero6)
+# d.heros.push(hero7)
+# d.heros.push(hero8)
+# d.heros.push(hero9)
+# d.heros.push(hero10)
+
+id = 374
+
+357.times do
+  heroHash = RestClient.get("http://superheroapi.com/api/10217103315240260/#{id}")
   id += 1
 
   hero = JSON.parse(heroHash)
 
-
+#  byebug
 
   Hero.create(
     :name => hero['name'],
@@ -33,6 +64,7 @@ id = 629
     :image => hero['image']['url']
   )
 end
+
 
 # {"response":"success",
 #   "id":"717",
