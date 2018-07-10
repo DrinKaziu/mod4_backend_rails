@@ -5,4 +5,15 @@ class Api::V1::TeamsController < ApplicationController
     render json: @hero
   end
 
+  def create
+    # team = Team.new(params[team])
+  
+  end
+
+  def team_id
+    request.headers['Authorization']
+  end
+
+
+
 end
