@@ -10,15 +10,10 @@ class Api::V1::TeamsController < ApplicationController
   end
 
   def create
-
-    byebug
-
-    # team = Team.find_by(teamName: params[:teamName])
-    # if team && team.authenticate(params[:password])
-    #   render json: {teamName: team.teamName, id: team.id}, status: 200
-    # else
-    #   render json: {error: 'Username or Password Invalid'}, status: 401
-    # end
+    @team = Team.new(team_params)
+    @team.save
+    
+    render json: @team
   end
 
   # def show
@@ -29,6 +24,17 @@ class Api::V1::TeamsController < ApplicationController
   #   end
   # end
 
+  def team_params
+    params.require(:login).permit(:name, :password)
+
+  end
 
 
 end
+
+# team = Team.find_by(teamName: params[:teamName])
+    # if team && team.authenticate(params[:password])
+    #   render json: {teamName: team.teamName, id: team.id}, status: 200
+    # else
+    #   render json: {error: 'Username or Password Invalid'}, status: 401
+    # end
