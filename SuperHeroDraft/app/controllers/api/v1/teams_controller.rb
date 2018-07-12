@@ -13,7 +13,7 @@ class Api::V1::TeamsController < ApplicationController
     @team = Team.new(team_params)
     @team.save
     
-    render json: @team
+    render json: Team.new(team_params)
   end
 
   def show
