@@ -1,8 +1,8 @@
 class Api::V1::TeamsController < ApplicationController
 
   def index
-    @teams = Team.all 
-    render json: @teams
+    # @teams = Team.all 
+    render json: Team.all
   end
 
   def team_id
@@ -14,6 +14,17 @@ class Api::V1::TeamsController < ApplicationController
     @team.save
     
     render json: @team
+  end
+
+  def show
+    # byebug
+    # @team = Team.find(params[:id])
+    # @teamHeroes = @team.heros 
+
+    render json: Team.find(params[:id])
+    # respond_to do |format|
+    #   format.json  { render :json => @team.to_json(:include => [:heros])}
+    # end
   end
 
   # def show
